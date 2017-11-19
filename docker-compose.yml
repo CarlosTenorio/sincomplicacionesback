@@ -1,0 +1,76 @@
+web: &web
+  build: .
+  environment:
+    - "DB_HOST=db"
+    - "DB_PORT=5432"
+    - "DB_PASSWORD=test123"
+    - "DB_USER=test123"
+    - "DB_NAME=test123"
+  volumes:
+    - ".:/opt/app/"
+  links:
+    - "db"
+    - "memcached"
+
+gunicorn:
+  <<: *web
+  entrypoint: ["gunicorn"]
+  expose: ["8888"]
+  volumes:
+    - ".:/opt/app"
+  command:
+    - "sincomplicacionesback.wsgi:application"
+    - "-w"
+    - "4"
+    - "--bind"
+    - "0.0.0.0:8888"
+
+dev:
+  <<: *web
+  command: ["runserver", "--settings=sincomplicacionesback.settings", "0.0.0.0:8000"]
+  ports:
+    - "80:8000"
+
+nginx:
+  image: "nginx:1.9"
+  volumes:
+    - "./dockerfile_nginx/nginx.conf:/etc/nginx/nginx.conf"
+  volumes_from:
+    - "gunicorn"
+  links:
+    - "gunicorn"
+  volumes_from:
+    - "gunicorn:rw"
+  ports:
+    - "80:80"
+
+node: &node
+  image: "node:5.8"
+  working_dir: "/opt/node"
+  volumes:
+    - ".:/opt/node"
+  entrypoint: ["node"]
+
+npm:
+  <<: *node
+  entrypoint: ["npm"]
+
+db:
+  image: "postgres:9.5.1"
+  expose:
+    - "5432"
+  ports:
+    - "5432:5432"
+  volumes:
+    - "/opt/sincomplicacionesback/postgresql:/var/lib/postgresql/data"
+  environment:
+    - "POSTGRES_PASSWORD=test123"
+    - "POSTGRES_USER=test123"
+    - "POSTGRES_DB=test123"
+
+memcached:
+  image: "memcached:1.4.36"
+  expose:
+    - "11211"
+  ports:
+    - "11211:11211"

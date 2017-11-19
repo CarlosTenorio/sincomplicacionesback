@@ -1,0 +1,418 @@
+[
+  {
+    "id": 1,
+    "country": "España",
+    "name": "Álava",
+    "url": "álava",
+    "lat": 42.8432425,
+    "lng": -3.3201738
+  },
+  {
+    "id": 2,
+    "country": "España",
+    "name": "Albacete",
+    "url": "albacete",
+    "lat": 38.992194,
+    "lng": -1.8956089
+  },
+  {
+    "id": 3,
+    "country": "España",
+    "name": "Alicante/Alacant",
+    "url": "alicante",
+    "lat": 38.3579545,
+    "lng": -0.5427363
+  },
+  {
+    "id": 4,
+    "country": "España",
+    "name": "Almería",
+    "url": "almería",
+    "lat": 38.35782,
+    "lng": -0.5425645
+  },
+  {
+    "id": 5,
+    "country": "España",
+    "name": "Asturias",
+    "url": "asturias",
+    "lat": 43.2690625,
+    "lng": -6.9677815
+  },
+  {
+    "id": 6,
+    "country": "España",
+    "name": "Ávila",
+    "url": "ávila",
+    "lat": 40.6179286,
+    "lng": -6.0700955
+  },
+  {
+    "id": 7,
+    "country": "España",
+    "name": "Badajoz",
+    "url": "badajoz",
+    "lat": 38.6910542,
+    "lng": -7.1111853
+  },
+  {
+    "id": 8,
+    "country": "España",
+    "name": "Illes Balears/Islas Baleares",
+    "url": "baleares",
+    "lat": 39.5403009,
+    "lng": 2.3304282
+  },
+  {
+    "id": 9,
+    "country": "España",
+    "name": "Barcelona",
+    "url": "barcelona",
+    "lat": 41.3947688,
+    "lng": 2.0787277
+  },
+  {
+    "id": 10,
+    "country": "España",
+    "name": "Burgos",
+    "url": "burgos",
+    "lat": 42.3441047,
+    "lng": -3.7647332
+  },
+  {
+    "id": 11,
+    "country": "España",
+    "name": "Cáceres",
+    "url": "cáceres",
+    "lat": 39.7537218,
+    "lng": -7.3702923
+  },
+  {
+    "id": 12,
+    "country": "España",
+    "name": "Cádiz",
+    "url": "cádiz",
+    "lat": 36.5163711,
+    "lng": -6.2977248
+  },
+  {
+    "id": 13,
+    "country": "España",
+    "name": "Cantabria",
+    "url": "cantabria",
+    "lat": 43.1303979,
+    "lng": -5.1218796
+  },
+  {
+    "id": 14,
+    "country": "España",
+    "name": "Castelló/Castellón",
+    "url": "castellón",
+    "lat": 39.9874542,
+    "lng": -0.0830825
+  },
+  {
+    "id": 15,
+    "country": "España",
+    "name": "Ceuta",
+    "url": "ceuta",
+    "lat": 35.8889515,
+    "lng": -5.3535557
+  },
+  {
+    "id": 16,
+    "country": "España",
+    "name": "Ciudad Real",
+    "url": "ciudadreal",
+    "lat": 38.954395,
+    "lng": -4.9636379
+  },
+  {
+    "id": 17,
+    "country": "España",
+    "name": "Córdoba",
+    "url": "córdoba",
+    "lat": 37.8915808,
+    "lng": -4.8195048
+  },
+  {
+    "id": 18,
+    "country": "España",
+    "name": "Cuenca",
+    "url": "cuenca",
+    "lat": 40.0619668,
+    "lng": -2.1830444
+  },
+  {
+    "id": 19,
+    "country": "España",
+    "name": "Girona/Gerona",
+    "url": "girona",
+    "lat": 41.9802474,
+    "lng": -2.7836477
+  },
+  {
+    "id": 20,
+    "country": "España",
+    "name": "Granada",
+    "url": "granada",
+    "lat": 37.1809411,
+    "lng": -3.6262913
+  },
+  {
+    "id": 21,
+    "country": "España",
+    "name": "Guadalajara",
+    "url": "guadalajara",
+    "lat": 40.6321849,
+    "lng": -3.208192
+  },
+  {
+    "id": 22,
+    "country": "España",
+    "name": "Guipúzcoa",
+    "url": "guipúzcoa",
+    "lat": 43.1440947,
+    "lng": -2.7264595
+  },
+  {
+    "id": 23,
+    "country": "España",
+    "name": "Huelva",
+    "url": "huelva",
+    "lat": 37.2708627,
+    "lng": -6.9747099
+  },
+  {
+    "id": 24,
+    "country": "España",
+    "name": "Huesca",
+    "url": "huesca",
+    "lat": 42.1306926,
+    "lng": -1.2026087
+  },
+  {
+    "id": 25,
+    "country": "España",
+    "name": "Jaén",
+    "url": "jaén",
+    "lat": 37.9503252,
+    "lng": -4.482746
+  },
+  {
+    "id": 26,
+    "country": "España",
+    "name": "A Coruña",
+    "url": "lacoruña",
+    "lat": 43.3618688,
+    "lng": -8.4477032
+  },
+  {
+    "id": 27,
+    "country": "España",
+    "name": "La Rioja",
+    "url": "larioja",
+    "lat": 42.2761888,
+    "lng": -3.5276622
+  },
+  {
+    "id": 28,
+    "country": "España",
+    "name": "Las Palmas",
+    "url": "laspalmas",
+    "lat": 28.7292296,
+    "lng": -14.4824034
+  },
+  {
+    "id": 29,
+    "country": "España",
+    "name": "León",
+    "url": "león",
+    "lat": 42.6036003,
+    "lng": -5.6124108
+  },
+  {
+    "id": 30,
+    "country": "España",
+    "name": "Lleida/Lérida",
+    "url": "lérida",
+    "lat": 41.618337,
+    "lng": 0.5849153
+  },
+  {
+    "id": 31,
+    "country": "España",
+    "name": "Lugo",
+    "url": "lugo",
+    "lat": 43.0381999,
+    "lng": -7.5915196
+  },
+  {
+    "id": 32,
+    "country": "España",
+    "name": "Madrid",
+    "url": "madrid",
+    "lat": 40.4378698,
+    "lng": -3.8196219
+  },
+  {
+    "id": 33,
+    "country": "España",
+    "name": "Málaga",
+    "url": "málaga",
+    "lat": 36.7181399,
+    "lng": -4.5893527
+  },
+  {
+    "id": 34,
+    "country": "España",
+    "name": "Melilla",
+    "url": "melilla",
+    "lat": 35.2862703,
+    "lng": -2.9620361
+  },
+  {
+    "id": 35,
+    "country": "España",
+    "name": "Murcia",
+    "url": "murcia",
+    "lat": 37.9805272,
+    "lng": -1.1621948
+  },
+  {
+    "id": 36,
+    "country": "España",
+    "name": "Navarra",
+    "url": "navarra",
+    "lat": 42.6068768,
+    "lng": -2.733188
+  },
+  {
+    "id": 37,
+    "country": "España",
+    "name": "Ourense",
+    "url": "orense",
+    "lat": 42.3383613,
+    "lng": -7.8811952
+  },
+  {
+    "id": 38,
+    "country": "España",
+    "name": "Palencia",
+    "url": "palencia",
+    "lat": 42.0088148,
+    "lng": -4.5444635
+  },
+  {
+    "id": 39,
+    "country": "España",
+    "name": "Pontevedra",
+    "url": "pontevedra",
+    "lat": 42.3625376,
+    "lng": -8.9658842
+  },
+  {
+    "id": 40,
+    "country": "España",
+    "name": "Salamanca",
+    "url": "salamanca",
+    "lat": 40.9634332,
+    "lng": -5.7042316
+  },
+  {
+    "id": 41,
+    "country": "España",
+    "name": "Santa Cruz de Tenerife",
+    "url": "santacruzdetenerife",
+    "lat": 28.3005236,
+    "lng": -17.0827217
+  },
+  {
+    "id": 42,
+    "country": "España",
+    "name": "Segovia",
+    "url": "segovia",
+    "lat": 40.9412449,
+    "lng": -4.1472214
+  },
+  {
+    "id": 43,
+    "country": "España",
+    "name": "Sevilla",
+    "url": "sevilla",
+    "lat": 37.3753501,
+    "lng": -6.0250986
+  },
+  {
+    "id": 44,
+    "country": "España",
+    "name": "Soria",
+    "url": "soria",
+    "lat": 41.7671202,
+    "lng": -2.4920887
+  },
+  {
+    "id": 45,
+    "country": "España",
+    "name": "Tarragona",
+    "url": "tarragona",
+    "lat": 41.1257836,
+    "lng": 1.1685334
+  },
+  {
+    "id": 46,
+    "country": "España",
+    "name": "Teruel",
+    "url": "teruel",
+    "lat": 40.595163,
+    "lng": -1.8776269
+  },
+  {
+    "id": 47,
+    "country": "España",
+    "name": "Toledo",
+    "url": "toledo",
+    "lat": 39.8621882,
+    "lng": -4.0694702
+  },
+  {
+    "id": 48,
+    "country": "España",
+    "name": "València/Valencia",
+    "url": "valencia",
+    "lat": 39.4077013,
+    "lng": -0.5015967
+  },
+  {
+    "id": 49,
+    "country": "España",
+    "name": "Valladolid",
+    "url": "valladolid",
+    "lat": 41.6345257,
+    "lng": -4.8025068
+  },
+  {
+    "id": 50,
+    "country": "España",
+    "name": "Vizcaya",
+    "url": "vizcaya",
+    "lat": 43.2181348,
+    "lng": -3.4914414
+  },
+  {
+    "id": 51,
+    "country": "España",
+    "name": "Zamora",
+    "url": "zamora",
+    "lat": 41.5038045,
+    "lng": -5.7795556
+  },
+  {
+    "id": 52,
+    "country": "España",
+    "name": "Zaragoza",
+    "url": "zaragoza",
+    "lat": 41.65167,
+    "lng": -0.9650211
+  }
+]
