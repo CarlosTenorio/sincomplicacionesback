@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from rest_framework.authtoken import views
 from api import views as api_views
 
 user_list = api_views.UserList.as_view({
@@ -19,5 +20,6 @@ province_list = api_views.ProvinceList.as_view({
 urlpatterns = [
     url(r'^users/$', user_list, name='user-list'),
     url(r'^cities/$', city_list, name='city-list'),
-    url(r'^provinces/$', province_list, name='province-list')
+    url(r'^provinces/$', province_list, name='province-list'),
+    url(r'^api-token-auth/', views.obtain_auth_token)
 ]
