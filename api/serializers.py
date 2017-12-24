@@ -1,20 +1,20 @@
 from rest_framework import serializers
-from api.models import UserExtended, City, Province
+from api.models import Country, Card, Expansion
 
 
-class UserSerializer(serializers.ModelSerializer):
+class CountrySerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserExtended
+        model = Country
         fields = '__all__'
 
 
-class CitySerializer(serializers.ModelSerializer):
+class CardSerializer(serializers.ModelSerializer):
     class Meta:
-        model = City
+        model = Card
         fields = '__all__'
 
 
-class ProvinceSerializer(serializers.ModelSerializer):
+class ExpansionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Province
+        model = Expansion
         fields = '__all__'

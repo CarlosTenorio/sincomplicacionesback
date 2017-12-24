@@ -1,29 +1,30 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated, AllowAny,
-    IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAdminUser
 
-from api.models import UserExtended, Province, City
-from api.serializers import UserSerializer, CitySerializer, ProvinceSerializer
+from api.models import Country, Expansion, Card
+from api.serializers import CountrySerializer, CardSerializer, ExpansionSerializer
 
 #############################
 # Default authentication #
 # IsAuthenticatedOrReadOnly #
 #############################
 
-class UserList(viewsets.ModelViewSet):
-    queryset = UserExtended.objects.all()
-    serializer_class = UserSerializer
+class CountryList(viewsets.ModelViewSet):
+    permission_classes = (IsAdminUser,)
+
+    queryset = Country.objects.all()
+    serializer_class = CountrySerializer
 
 
-class CityList(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+class CardList(viewsets.ModelViewSet):
+    permission_classes = (IsAdminUser,)
 
-    queryset = City.objects.all()
-    serializer_class = CitySerializer
+    queryset = Card.objects.all()
+    serializer_class = CardSerializer
 
 
-class ProvinceList(viewsets.ModelViewSet):
-    permission_classes = (AllowAny,)
+class ExpansionList(viewsets.ModelViewSet):
+    permission_classes = (IsAdminUser,)
 
-    queryset = Province.objects.all()
-    serializer_class = ProvinceSerializer
+    queryset = Expansion.objects.all()
+    serializer_class = ExpansionSerializer

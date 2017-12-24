@@ -1,10 +1,7 @@
 from django.contrib import admin
 
-from api.models import Category, City, Country, Province, PostalCode, UserExtended
+from api.models import Country, Card, Expansion
 
-admin.site.register(Category)
-admin.site.register(City)
+admin.site.register(Expansion)
+admin.site.register(Card)
 admin.site.register(Country)
-admin.site.register(PostalCode)
-admin.site.register(Province)
-admin.site.register(UserExtended)

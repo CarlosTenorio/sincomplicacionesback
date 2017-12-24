@@ -2,24 +2,24 @@ from django.conf.urls import url
 from rest_framework.authtoken import views
 from api import views as api_views
 
-user_list = api_views.UserList.as_view({
+card_list = api_views.CardList.as_view({
     'get': 'list',
     'post': 'create'
 })
 
-city_list = api_views.CityList.as_view({
+country_list = api_views.CountryList.as_view({
     'get': 'list',
     'post': 'create'
 })
 
-province_list = api_views.ProvinceList.as_view({
+expansion_list = api_views.ExpansionList.as_view({
     'get': 'list',
     'post': 'create'
 })
 
 urlpatterns = [
-    url(r'^users/$', user_list, name='user-list'),
-    url(r'^cities/$', city_list, name='city-list'),
-    url(r'^provinces/$', province_list, name='province-list'),
+    url(r'^cards/$', card_list, name='card-list'),
+    url(r'^countries/$', country_list, name='country-list'),
+    url(r'^expansions/$', expansion_list, name='expansion-list'),
     url(r'^api-token-auth/', views.obtain_auth_token)
 ]
