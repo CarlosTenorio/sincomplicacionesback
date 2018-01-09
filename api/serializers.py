@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Country, Card, Expansion
+from api.models import Country, Card, Expansion, Shipping
 
 
 class CountrySerializer(serializers.ModelSerializer):
@@ -17,4 +17,10 @@ class CardSerializer(serializers.ModelSerializer):
 class ExpansionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expansion
+        fields = '__all__'
+
+
+class ShippingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shipping
         fields = '__all__'
