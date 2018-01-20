@@ -41,7 +41,8 @@ class Shipping(models.Model):
     shipping_type = models.IntegerField(null=True, blank=True,
         verbose_name='Tipo', default=0, choices=SHIPPING_TYPE)
 
-    shipping_costs = models.FloatField(null=True, blank=True, verbose_name='Latitud')
+    shipping_costs = models.FloatField(null=True, blank=True,
+        verbose_name='Costes de envio')
 
     created_at = models.DateTimeField(
         auto_now_add=True, null=True, blank=True, verbose_name='Fecha de creación')
@@ -53,7 +54,7 @@ class Shipping(models.Model):
         verbose_name_plural = 'Envíos'
 
     def __str__(self):
-        return self.date
+        return str(self.date)
 
 
 ##################################################################
