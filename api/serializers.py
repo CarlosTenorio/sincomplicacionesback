@@ -26,6 +26,23 @@ class ExpansionSerializer(serializers.ModelSerializer):
 
 
 class ShippingSerializer(serializers.ModelSerializer):
+    shipping_card = CardSerializer(many=True)
+
     class Meta:
         model = Shipping
-        fields = '__all__'
+        fields = ('date', 'shipping_type', 'shipping_costs', 'shipping_card')
+
+    def create(self, validated_data):
+        cards_data = validated_data.pop('shipping_card')
+        print(validated_data)
+        shipping = Shipping.objects.create(**validated_data)
+        for card_data in cards_data:
+            country = card_data.get('country', card_data['country'].id)
+            expansion = card_data.get('expansion', card_data['expansion'].id)
+            Card.objects.create(
+                shipping=shipping,
+                country=country,
+                title=card_data['title'],
+                description=card_data['description']
+            )
+        return shipping

@@ -1,13 +1,14 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
 from rest_framework.decorators import api_view
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
+from rest_framework import status
 
 from django.shortcuts import get_object_or_404
 
 from api.models import Country, Expansion, Card, Shipping
 from api.serializers import CountrySerializer, CardSerializer, ExpansionSerializer, ShippingSerializer
-from rest_framework.pagination import PageNumberPagination
 
 
 #############################
@@ -34,6 +35,7 @@ class CountryViewSet(viewsets.ViewSet):
         serializer = CountrySerializer(queryset, many=True)
 
         return Response(serializer.data)
+
 
 class CardViewSet(viewsets.ViewSet):
     """
@@ -89,3 +91,10 @@ class ShippingViewSet(viewsets.ViewSet):
         serializer = ShippingSerializer(queryset, many=True)
 
         return Response(serializer.data)
+
+    def create(self, request):
+        serializer = ShippingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

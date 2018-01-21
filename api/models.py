@@ -58,6 +58,30 @@ class Shipping(models.Model):
 
 
 ##################################################################
+# Expansion
+##################################################################
+class Expansion(models.Model):
+
+    title = models.CharField(max_length=128, null=True,
+                             blank=True, verbose_name='Título')
+
+    image = models.ImageField(
+        upload_to="expansion_photos/", blank=True, null=True, verbose_name='Imagen')
+
+    created_at = models.DateTimeField(
+        auto_now_add=True, null=True, blank=True, verbose_name='Fecha de creación')
+    updated_at = models.DateTimeField(
+        auto_now=True, null=True, blank=True, verbose_name='Fecha de modificación')
+
+    class Meta:
+        verbose_name = 'Expansión'
+        verbose_name_plural = 'Expansiones'
+
+    def __str__(self):
+        return self.title
+
+
+##################################################################
 # Card
 ##################################################################
 class Card(models.Model):
@@ -77,39 +101,18 @@ class Card(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True, null=True, blank=True, verbose_name='Fecha de modificación')
 
-    country = models.ForeignKey(Country, on_delete=models.SET_NULL,
+    expansion = models.ForeignKey(Expansion, on_delete=models.PROTECT,
+        related_name="expansion_card", verbose_name='Expansión', null=True, blank=True)
+
+    country = models.ForeignKey(Country, on_delete=models.PROTECT,
         related_name="country_card", verbose_name='País', null=True, blank=True)
 
-    shipping = models.ForeignKey(Shipping, on_delete=models.SET_NULL,
+    shipping = models.ForeignKey(Shipping, on_delete=models.PROTECT,
         related_name="shipping_card", verbose_name='Envío', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Carta'
         verbose_name_plural = 'Cartas'
-
-    def __str__(self):
-        return self.title
-
-
-##################################################################
-# Expansion
-##################################################################
-class Expansion(models.Model):
-
-    title = models.CharField(max_length=128, null=True,
-                             blank=True, verbose_name='Título')
-
-    image = models.ImageField(
-        upload_to="expansion_photos/", blank=True, null=True, verbose_name='Imagen')
-
-    created_at = models.DateTimeField(
-        auto_now_add=True, null=True, blank=True, verbose_name='Fecha de creación')
-    updated_at = models.DateTimeField(
-        auto_now=True, null=True, blank=True, verbose_name='Fecha de modificación')
-
-    class Meta:
-        verbose_name = 'Expansión'
-        verbose_name_plural = 'Expansiones'
 
     def __str__(self):
         return self.title

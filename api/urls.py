@@ -9,7 +9,7 @@ country_list = api_views.CountryViewSet.as_view({'get': 'list'})
 
 expansion_list = api_views.ExpansionViewSet.as_view({'get': 'list'})
 
-shipping_list = api_views.ShippingViewSet.as_view({'get': 'list'})
+shipping_list = api_views.ShippingViewSet.as_view({'get': 'list', 'post': 'create'})
 
 urlpatterns = [
     url(r'^cards/$', card_list, name='card-list'),
