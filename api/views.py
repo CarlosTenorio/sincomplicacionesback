@@ -1,5 +1,6 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly, AllowAny
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
@@ -25,11 +26,9 @@ class CountryViewSet(viewsets.ViewSet):
     """
     View to list all countries in the system.
 
-    * Requires basic authentication.
-    * Only admin users are able to access this view.
+    * Requires token authentication.
+    * Only authenticated users are able to access this view.
     """
-    permission_classes = (IsAdminUser,)
-
     def list(self, request):
         queryset = Country.objects.all()
         serializer = CountrySerializer(queryset, many=True)
@@ -41,11 +40,9 @@ class CardViewSet(viewsets.ViewSet):
     """
     View to list all cards in the system and get the detail view.
 
-    * Requires basic authentication.
-    * Only admin users are able to access this view.
+    * Requires token authentication.
+    * Only authenticated users are able to access this view.
     """
-    permission_classes = (IsAdminUser,)
-
     def list(self, request):
         queryset = Card.objects.all()
         serializer = CardSerializer(queryset, many=True)
@@ -64,10 +61,9 @@ class ExpansionViewSet(viewsets.ViewSet):
     """
     View to list all expansions in the system.
 
-    * Requires basic authentication.
-    * Only admin users are able to access this view.
+    * Requires token authentication.
+    * Only authenticated users are able to access this view.
     """
-    permission_classes = (IsAuthenticatedOrReadOnly,)
     pagination_class = LargeResultsSetPagination
 
     def list(self, request):
@@ -81,19 +77,17 @@ class ShippingViewSet(viewsets.ViewSet):
     """
     View to list all shippings in the system.
 
-    * Requires basic authentication.
-    * Only admin users are able to access this view.
+    * Requires token authentication.
+    * Only authenticated users are able to access this view.
     """
-    permission_classes = (IsAdminUser,)
-
     def list(self, request):
-        queryset = Shipping.objects.all()
+        queryset = Shipping.objects.filter(user=request.user)
         serializer = ShippingSerializer(queryset, many=True)
 
         return Response(serializer.data)
 
     def create(self, request):
-        serializer = ShippingSerializer(data=request.data)
+        serializer = ShippingSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.fields import CurrentUserDefault
 from api.models import Country, Card, Expansion, Shipping
 
 from rest_framework_bulk import (
@@ -30,19 +31,25 @@ class ShippingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shipping
-        fields = ('date', 'shipping_type', 'shipping_costs', 'shipping_card')
+        fields = ('id', 'date', 'shipping_type', 'shipping_costs',
+            'shipping_card', 'user')
 
     def create(self, validated_data):
+        user = self.context['request'].user
         cards_data = validated_data.pop('shipping_card')
-        print(validated_data)
-        shipping = Shipping.objects.create(**validated_data)
+        shipping = Shipping.objects.create(
+            date = validated_data['date'],
+            shipping_type = validated_data['shipping_type'],
+            shipping_costs = validated_data['shipping_costs'],
+            user = user
+        )
         for card_data in cards_data:
             country = card_data.get('country', card_data['country'].id)
             expansion = card_data.get('expansion', card_data['expansion'].id)
             Card.objects.create(
-                shipping=shipping,
-                country=country,
-                title=card_data['title'],
-                description=card_data['description']
+                shipping = shipping,
+                country = country,
+                title = card_data['title'],
+                description = card_data['description']
             )
         return shipping
