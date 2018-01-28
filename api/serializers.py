@@ -49,7 +49,9 @@ class ShippingSerializer(serializers.ModelSerializer):
             Card.objects.create(
                 shipping = shipping,
                 country = country,
+                expansion = expansion,
                 title = card_data['title'],
-                description = card_data['description']
+                description = card_data['description'],
+                price = card_data['price']
             )
         return shipping
