@@ -86,6 +86,13 @@ class ShippingViewSet(viewsets.ViewSet):
 
         return Response(serializer.data)
 
+    def detail(self, request, shipping_id=None):
+        queryset = Shipping.objects.all()
+        shipping = get_object_or_404(queryset, pk=shipping_id)
+        serializer = ShippingSerializer(shipping)
+
+        return Response(serializer.data)
+
     def create(self, request):
         serializer = ShippingSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():

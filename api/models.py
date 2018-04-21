@@ -50,10 +50,10 @@ class Shipping(models.Model):
 
     date = models.DateField(verbose_name='Fecha del envío')
 
-    shipping_type = models.IntegerField(null=True, blank=True,
+    type = models.IntegerField(null=True, blank=True,
         verbose_name='Tipo', default=0, choices=SHIPPING_TYPE)
 
-    shipping_costs = models.FloatField(null=True, blank=True,
+    costs = models.FloatField(null=True, blank=True,
         verbose_name='Costes de envio')
 
     user = models.ForeignKey(User, on_delete=models.PROTECT,

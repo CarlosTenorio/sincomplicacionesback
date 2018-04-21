@@ -31,7 +31,7 @@ class ShippingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shipping
-        fields = ('id', 'date', 'shipping_type', 'shipping_costs',
+        fields = ('id', 'date', 'type', 'costs',
             'shipping_card', 'user')
 
     def create(self, validated_data):
@@ -39,8 +39,8 @@ class ShippingSerializer(serializers.ModelSerializer):
         cards_data = validated_data.pop('shipping_card')
         shipping = Shipping.objects.create(
             date = validated_data['date'],
-            shipping_type = validated_data['shipping_type'],
-            shipping_costs = validated_data['shipping_costs'],
+            type = validated_data['type'],
+            costs = validated_data['costs'],
             user = user
         )
         for card_data in cards_data:
