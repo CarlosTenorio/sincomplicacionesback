@@ -8,12 +8,20 @@ from datetime import date
 
 from django.contrib.auth.models import User
 
-from api.models import Country, Expansion
+from api.models import Country, Expansion, Shipping, Card
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
+
+        def clean_all_db():
+            print("Cleaning DB")
+            Card.objects.all().delete()
+            Shipping.objects.all().delete()
+            Country.objects.all().delete()
+            Expansion.objects.all().delete()
+            User.objects.all().delete()
 
         def insert_countries():
             print("Deleting countries...")
@@ -30,6 +38,14 @@ class Command(BaseCommand):
             # deleted when inserting the professionals
             User.objects.all().delete()
 
+            print("Inserting super user...")
+            username = "root"
+            email = "superuser@email.com"
+            password = "Admin1234"
+            user_django = User.objects.create_superuser(
+                username=username, email=email, password=password)
+            user_django.save()
+
             print("Inserting users...")
             # Create my users
             for idx, i in enumerate(range(1, 25)):
@@ -37,7 +53,7 @@ class Command(BaseCommand):
                 username = "useTest" + str(idx)
                 email = username + "@mail.com"
                 password = "User1234"
-                user_django = User.objects.create_user(username=email, password=password)
+                user_django = User.objects.create_user(username=username, password=password)
                 user_django.email = email
                 user_django.save()
 
@@ -59,6 +75,7 @@ class Command(BaseCommand):
         ########################################################
         # Insert all data
         ########################################################
+        clean_all_db()
         insert_countries()
         print()
         insert_users()
